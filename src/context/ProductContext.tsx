@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
+
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from 'react';
 
 export interface Product {
   _id?: string;
@@ -98,7 +99,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
         ...p,
         id: p._id || p.id,
         price: Number(p.price) || 0,
-        inventory: Number(p.inventory || p.stock || 0),
+        inventory: Number(p.inventory ?? p.stock ?? 0),
         images: normalizeImages(p.images || p.imageUrl || p.image),
         sizes: Array.isArray(p.sizes) ? p.sizes : (typeof p.sizes === 'string' ? p.sizes.split(',').map((s: string) => s.trim()).filter(Boolean) : []),
         colors: Array.isArray(p.colors) ? p.colors : (typeof p.colors === 'string' ? p.colors.split(',').map((c: string) => c.trim()).filter(Boolean) : []),
@@ -138,7 +139,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
         ...rawProduct,
         id: rawProduct._id || rawProduct.id || id,
         price: Number(rawProduct.price) || 0,
-        inventory: Number(rawProduct.inventory || rawProduct.stock || 0),
+        inventory: Number(rawProduct.inventory ?? rawProduct.stock ?? 0),
         images: normalizeImages(rawProduct.images || rawProduct.imageUrl || rawProduct.image),
         sizes: Array.isArray(rawProduct.sizes) ? rawProduct.sizes : (typeof rawProduct.sizes === 'string' ? rawProduct.sizes.split(',').map((s: string) => s.trim()).filter(Boolean) : []),
         colors: Array.isArray(rawProduct.colors) ? rawProduct.colors : (typeof rawProduct.colors === 'string' ? rawProduct.colors.split(',').map((c: string) => c.trim()).filter(Boolean) : []),
@@ -161,7 +162,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
     }
   }, []);
 
-  const createProduct = async (productData: Partial<Product>) => {
+  const createProduct = useCallback(async (productData: Partial<Product>) => {
     try {
       const response = await fetch(`${API_BASE_URL}/`, {
         method: 'POST',
@@ -177,7 +178,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
         ...rawProd,
         id: rawProd._id || rawProd.id,
         price: Number(rawProd.price) || 0,
-        inventory: Number(rawProd.inventory || rawProd.stock || 0),
+        inventory: Number(rawProd.inventory ?? rawProd.stock ?? 0),
         images: normalizeImages(rawProd.images || rawProd.imageUrl || rawProd.image),
       };
 
@@ -186,9 +187,9 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
     } catch (err: any) {
       throw err;
     }
-  };
+  }, []);
 
-  const updateProduct = async (id: string, productData: Partial<Product>) => {
+  const updateProduct = useCallback(async (id: string, productData: Partial<Product>) => {
     try {
       const response = await fetch(`${API_BASE_URL}/${encodeURIComponent(id)}`, {
         method: 'PUT',
@@ -204,7 +205,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
         ...rawProd,
         id: rawProd._id || rawProd.id || id,
         price: Number(rawProd.price) || 0,
-        inventory: Number(rawProd.inventory || rawProd.stock || 0),
+        inventory: Number(rawProd.inventory ?? rawProd.stock ?? 0),
         images: normalizeImages(rawProd.images || rawProd.imageUrl || rawProd.image),
       };
 
@@ -213,9 +214,9 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
     } catch (err: any) {
       throw err;
     }
-  };
+  }, []);
 
-  const deleteProduct = async (id: string) => {
+  const deleteProduct = useCallback(async (id: string) => {
     try {
       const response = await fetch(`${API_BASE_URL}/${encodeURIComponent(id)}`, {
         method: 'DELETE',
@@ -231,20 +232,32 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
     } catch (err: any) {
       throw err;
     }
-  };
+  }, []);
+
+  // Memoize context value to prevent unnecessary re-renders of consumers
+  const contextValue = useMemo(() => ({
+    products,
+    isLoading,
+    loading: isLoading,
+    error,
+    fetchProducts,
+    fetchProductById,
+    createProduct,
+    updateProduct,
+    deleteProduct
+  }), [
+    products, 
+    isLoading, 
+    error, 
+    fetchProducts, 
+    fetchProductById, 
+    createProduct, 
+    updateProduct, 
+    deleteProduct
+  ]);
 
   return (
-    <ProductContext.Provider value={{ 
-      products, 
-      isLoading, 
-      loading: isLoading, 
-      error, 
-      fetchProducts, 
-      fetchProductById, 
-      createProduct, 
-      updateProduct, 
-      deleteProduct 
-    }}>
+    <ProductContext.Provider value={contextValue}>
       {children}
     </ProductContext.Provider>
   );

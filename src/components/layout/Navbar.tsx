@@ -41,87 +41,17 @@ const Navbar: React.FC = () => {
           overflow-hidden
           text-white
           font-sans
-          border-b border-cyan-400/15
-          bg-[#07080f]
-          shadow-[0_8px_30px_rgba(0,0,0,0.4)]
+          border-b border-white/10
+          bg-black
+          shadow-[0_4px_20px_rgba(0,0,0,0.5)]
         "
       >
 
         {/* =====================================================
-            BACKGROUND
+            BACKGROUND (clean pure black)
         ====================================================== */}
 
-        <div className="absolute inset-0 pointer-events-none">
-
-          {/* Main background - stronger cyan + purple highlights */}
-          <div
-            className="
-              absolute inset-0
-              bg-[radial-gradient(circle_at_12%_0%,rgba(34,211,238,0.18),transparent_38%),radial-gradient(circle_at_88%_8%,rgba(167,139,250,0.14),transparent_32%),radial-gradient(circle_at_50%_100%,rgba(56,189,248,0.08),transparent_45%),linear-gradient(145deg,#06070e,#0a0f1c,#07080f)]
-            "
-          />
-
-          {/* Subtle grid - slightly brighter */}
-          <div
-            className="
-              absolute inset-0
-              opacity-[0.14]
-              bg-[linear-gradient(rgba(34,211,238,0.28)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.28)_1px,transparent_1px)]
-              bg-[size:32px_32px]
-            "
-          />
-
-          {/* Cyan glow left */}
-          <div
-            className="
-              absolute
-              -top-28
-              -left-28
-              w-[420px]
-              h-[260px]
-              rounded-full
-              border border-cyan-400/25
-              rotate-[-18deg]
-              shadow-[0_0_60px_rgba(34,211,238,0.12)]
-            "
-          />
-
-          {/* Purple/pink glow right */}
-          <div
-            className="
-              absolute
-              -top-36
-              -right-36
-              w-[480px]
-              h-[290px]
-              rounded-full
-              border border-purple-400/20
-              rotate-[-18deg]
-              shadow-[0_0_50px_rgba(167,139,250,0.10)]
-            "
-          />
-
-          {/* Top accent line */}
-          <div
-            className="
-              absolute top-0 left-0 right-0
-              h-px
-              bg-gradient-to-r
-              from-transparent
-              via-cyan-400/50
-              to-transparent
-            "
-          />
-
-          {/* Decorative dots - desktop only */}
-          <div className="absolute top-4 right-6 hidden lg:flex gap-1.5 opacity-50">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/70" />
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-300/70" />
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-300/40" />
-          </div>
-
-        </div>
+        <div className="absolute inset-0 pointer-events-none bg-black" />
 
 
         {/* =====================================================
@@ -181,16 +111,16 @@ const Navbar: React.FC = () => {
                 </span>
 
                 <span
-                  className="
-                    ml-[2px]
-                    font-normal
-                    text-[clamp(22px,3.8vw,34px)]
-                    tracking-[-0.055em]
-                    text-cyan-400
-                  "
-                >
-                  Ecom
-                </span>
+  className="
+    ml-[2px]
+    font-normal
+    text-[clamp(22px,3.8vw,34px)]
+    tracking-[-0.055em]
+    text-sky-400
+  "
+>
+  Ecom
+</span>
 
               </div>
 
@@ -200,7 +130,7 @@ const Navbar: React.FC = () => {
                   mt-[2px]
                   text-[clamp(6px,0.7vw,9px)]
                   tracking-[0.32em]
-                  text-slate-400
+                  text-white/40
                   uppercase
                   font-semibold
                   w-full
@@ -237,8 +167,8 @@ const Navbar: React.FC = () => {
                 className="
                   relative
                   flex items-center justify-center
-                  text-white
-                  hover:text-cyan-300
+                  text-white/90
+                  hover:text-white
                   transition-all
                   duration-300
                 "
@@ -260,7 +190,7 @@ const Navbar: React.FC = () => {
                   <path d="M16 10a4 4 0 0 1-8 0" />
                 </svg>
 
-                {/* CART BADGE - sky blue */}
+                {/* CART BADGE */}
                 {cartCount > 0 && (
                   <span
                     className="
@@ -274,13 +204,13 @@ const Navbar: React.FC = () => {
                       items-center
                       justify-center
                       rounded-full
-                      bg-cyan-400
+                      bg-white
                       text-[8px]
                       font-bold
                       leading-none
-                      text-[#0a0f1c]
+                      text-black
                       border
-                      border-[#07080f]
+                      border-black
                     "
                   >
                     {cartCount > 99 ? '99+' : cartCount}
@@ -297,8 +227,8 @@ const Navbar: React.FC = () => {
                 aria-label="Profile"
                 className="
                   flex items-center justify-center
-                  text-white
-                  hover:text-cyan-300
+                  text-white/90
+                  hover:text-white
                   transition-all
                   duration-300
                 "
@@ -329,8 +259,8 @@ const Navbar: React.FC = () => {
                 aria-label="Open menu"
                 className="
                   flex items-center justify-center
-                  text-white
-                  hover:text-cyan-300
+                  text-white/90
+                  hover:text-white
                   transition-all
                   duration-300
                   focus:outline-none
@@ -389,7 +319,7 @@ const Navbar: React.FC = () => {
                   rounded-[14px]
 
                   border
-                  border-cyan-400/25
+                  border-white/15
 
                   bg-white/[0.04]
 
@@ -398,27 +328,11 @@ const Navbar: React.FC = () => {
                   transition-all
                   duration-300
 
-                  focus-within:border-cyan-400/55
+                  focus-within:border-white/30
 
-                  focus-within:bg-cyan-400/[0.04]
-
-                  focus-within:shadow-[0_0_28px_rgba(34,211,238,0.12)]
+                  focus-within:bg-white/[0.06]
                 "
               >
-
-                {/* Search internal grid */}
-                <div
-                  className="
-                    absolute
-                    inset-0
-                    rounded-[14px]
-                    pointer-events-none
-                    opacity-[0.08]
-                    bg-[linear-gradient(rgba(34,211,238,0.45)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.45)_1px,transparent_1px)]
-                    bg-[size:22px_22px]
-                  "
-                />
-
 
                 {/* Search icon */}
                 <div
@@ -443,7 +357,7 @@ const Navbar: React.FC = () => {
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-cyan-300/70"
+                    className="text-white/50"
                   >
                     <circle cx="11" cy="11" r="8" />
                     <line
@@ -475,27 +389,10 @@ const Navbar: React.FC = () => {
                     sm:text-[14px]
                     md:text-[15px]
                     text-white
-                    placeholder-slate-500
+                    placeholder-white/40
                     focus:outline-none
                   "
                 />
-
-
-                {/* Decorative marks - desktop */}
-                <div
-                  className="
-                    hidden
-                    md:flex
-                    items-center
-                    gap-1.5
-                    mr-4
-                    opacity-50
-                  "
-                >
-                  <span className="w-3.5 h-[2.5px] bg-cyan-400 skew-x-[-35deg]" />
-                  <span className="w-3.5 h-[2.5px] bg-cyan-300 skew-x-[-35deg]" />
-                  <span className="w-3.5 h-[2.5px] bg-purple-300 skew-x-[-35deg]" />
-                </div>
 
               </div>
 
@@ -521,7 +418,7 @@ const Navbar: React.FC = () => {
             className="
               absolute
               inset-0
-              bg-black/70
+              bg-black/80
               backdrop-blur-sm
             "
             onClick={closeSidebar}
@@ -537,39 +434,13 @@ const Navbar: React.FC = () => {
               max-w-[85vw]
               h-full
               overflow-y-auto
-              bg-[#07080f]
+              bg-black
               border-r
-              border-cyan-400/15
-              shadow-[15px_0_50px_rgba(0,0,0,0.7)]
+              border-white/10
+              shadow-[15px_0_40px_rgba(0,0,0,0.6)]
               animate-sidebar
             "
           >
-
-            {/* Sidebar grid */}
-            <div
-              className="
-                absolute inset-0
-                pointer-events-none
-                opacity-[0.11]
-                bg-[linear-gradient(rgba(34,211,238,0.35)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.35)_1px,transparent_1px)]
-                bg-[size:28px_28px]
-              "
-            />
-
-
-            {/* Sidebar glow */}
-            <div
-              className="
-                absolute
-                top-0
-                left-0
-                right-0
-                h-[180px]
-                pointer-events-none
-                bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_65%)]
-              "
-            />
-
 
             {/* Header */}
             <div
@@ -580,14 +451,14 @@ const Navbar: React.FC = () => {
                 justify-between
                 p-5
                 border-b
-                border-cyan-400/10
+                border-white/10
               "
             >
 
               <div>
                 <div
                   className="
-                    text-cyan-400
+                    text-white/40
                     text-[10px]
                     font-bold
                     uppercase
@@ -621,11 +492,11 @@ const Navbar: React.FC = () => {
                   justify-center
                   rounded-xl
                   border
-                  border-cyan-400/10
+                  border-white/10
                   bg-white/[0.03]
-                  text-slate-400
-                  hover:text-cyan-300
-                  hover:border-cyan-400/30
+                  text-white/50
+                  hover:text-white
+                  hover:border-white/25
                   transition-all
                 "
               >
@@ -696,10 +567,10 @@ const Navbar: React.FC = () => {
                   py-3
                   rounded-xl
                   border
-                  border-cyan-400/20
-                  bg-cyan-400/[0.06]
-                  text-cyan-200
-                  hover:bg-cyan-400/[0.10]
+                  border-white/15
+                  bg-white/[0.04]
+                  text-white/90
+                  hover:bg-white/[0.07]
                   transition-all
                 "
               >
@@ -713,8 +584,8 @@ const Navbar: React.FC = () => {
                     px-2
                     py-1
                     rounded-full
-                    bg-cyan-400
-                    text-[#0a0f1c]
+                    bg-white
+                    text-black
                     font-black
                   "
                 >
@@ -742,7 +613,7 @@ const Navbar: React.FC = () => {
                   my-5
                   bg-gradient-to-r
                   from-transparent
-                  via-cyan-400/25
+                  via-white/15
                   to-transparent
                 "
               />
@@ -782,6 +653,7 @@ const Navbar: React.FC = () => {
             transform: translateX(-100%);
             opacity: 0;
           }
+
           to {
             transform: translateX(0);
             opacity: 1;
@@ -795,7 +667,7 @@ const Navbar: React.FC = () => {
         .section-title {
           padding: 0 12px;
           margin-bottom: 7px;
-          color: rgb(100 116 139);
+          color: rgba(255,255,255,0.35);
           font-size: 10px;
           font-weight: 800;
           letter-spacing: .2em;
@@ -807,7 +679,7 @@ const Navbar: React.FC = () => {
           padding: 10px 14px;
           margin-bottom: 3px;
           border-radius: 10px;
-          color: rgb(203 213 225);
+          color: rgba(255,255,255,0.75);
           font-size: 14px;
           transition:
             background .2s ease,
@@ -817,24 +689,20 @@ const Navbar: React.FC = () => {
 
         .menu-link:hover {
           color: white;
-          background: linear-gradient(
-            90deg,
-            rgba(34,211,238,.10),
-            rgba(167,139,250,.05)
-          );
+          background: rgba(255,255,255,0.06);
           transform: translateX(3px);
         }
 
         .secondary-link {
           display: block;
           padding: 7px 12px;
-          color: rgb(100 116 139);
+          color: rgba(255,255,255,0.4);
           font-size: 13px;
           transition: all .2s ease;
         }
 
         .secondary-link:hover {
-          color: rgb(103 232 249);
+          color: rgba(255,255,255,0.85);
           transform: translateX(3px);
         }
 
