@@ -1,0 +1,70 @@
+/* src/index.css */
+@import "tailwindcss";
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+
+/* Add this to your styles to debug */
+.product-image {
+  display: block;
+  width: 100%;
+  height: 200px; /* Fixed height for testing */
+  object-fit: cover;
+  background-color: transparent; /* Remove background color */
+}
+
+
+/* src/pages/Home.css */
+
+@keyframes floatCenter {
+  0%, 100% { transform: translateY(0) scale(1.05); }
+  50% { transform: translateY(-10px) scale(1.07); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.08); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-150%) skewX(12deg); }
+  40%, 100% { transform: translateX(280%) skewX(12deg); }
+}
+
+/* Smooth, visible gliding slide transition for carousel cards */
+.carousel-card {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[floatCenter_7s_ease-in-out_infinite\],
+  .animate-\[pulseGlow_4s_ease-in-out_infinite\],
+  .animate-\[shine_6s_infinite_ease-in-out\] {
+    animation: none !important;
+  }
+  .carousel-card {
+    transition: none !important;
+  }
+}
