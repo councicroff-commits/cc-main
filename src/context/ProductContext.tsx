@@ -33,7 +33,7 @@ interface ProductContextType {
   deleteProduct: (id: string) => Promise<void>;
 }
 
-const API_BASE_URL = 'https://cc-backend-yc-team.onrender.com/api/v1/products';
+const API_BASE_URL = 'https://cc-backend-production-00fe.up.railway.app/api/v1/products';
 
 export const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
