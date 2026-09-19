@@ -13,9 +13,9 @@ import {
 
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
-  'https://cc-backend-yc-team.onrender.com';
+  'https://cc-backend-production-00fe.up.railway.app/';
 
-const AUTH_API_URL = `${API_BASE_URL}/api/v1/auth`;
+const AUTH_API_URL = `https://cc-backend-production-00fe.up.railway.app/api/v1/auth`;
 
 type TwistType =
   | 'NORMAL'
