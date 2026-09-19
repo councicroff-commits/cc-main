@@ -71,7 +71,7 @@ interface HomeData {
 // =================================================================
 // API CONFIGURATION
 // =================================================================
-const API_BASE_URL = 'https://cc-backend-yc-team.onrender.com/api/v1';
+const API_BASE_URL = 'https://cc-backend-production-00fe.up.railway.app/api/v1';
 
 const Home: React.FC = () => {
   const [data, setData] = useState<HomeData | null>(null);
