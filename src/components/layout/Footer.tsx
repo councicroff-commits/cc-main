@@ -37,7 +37,7 @@ const DEFAULT_FOOTER: FooterConfig = {
 
 // 🔥 DYNAMIC PERMANENT FIX for Footer / Parts (Cleaned single slash)
 const getApiBaseUrl = () => {
-  return `https://cc-backend-yc-team.onrender.com/api/v1`;
+  return `'https://cc-backend-production-00fe.up.railway.app/api/v1/parts/'`;
 };
 
 const API_BASE_URL = getApiBaseUrl();
