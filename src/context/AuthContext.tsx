@@ -46,7 +46,7 @@ interface AuthContextType {
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const API_BASE_URL = 'https://cc-backend-yc-team.onrender.com/api/v1/auth';
+const API_BASE_URL = 'https://cc-backend-production-00fe.up.railway.app/api/v1/auth';
 
 const extractErrorMessage = (data: any, fallback: string): string => {
   if (!data) return fallback;
