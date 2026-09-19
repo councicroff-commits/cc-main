@@ -33,7 +33,7 @@ const TopBanner: React.FC = () => {
     const fetchBannerSettings = async () => {
       try {
         const res = await fetch(
-          'https://cc-backend-yc-team.onrender.com/api/v1/parts'
+          'https://cc-backend-production-00fe.up.railway.app/api/v1/parts/'
         );
 
         if (!res.ok) {
