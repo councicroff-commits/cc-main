@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
   // Permanent production backend URL
-  baseURL: 'https://cc-backend-production-00fe.up.railway.app/', 
+  baseURL: 'https://cc-backend-production-00fe.up.railway.app', 
 });
 
 // Add request interceptor to attach JWT/Token
