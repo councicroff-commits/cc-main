@@ -146,7 +146,7 @@ const MiniGame: React.FC = () => {
     };
 
     try {
-      const apiUrl = import.meta.env.VITE_API_BASE_URL || 'https://cc-backend-yc-team.onrender.com/api/v1';
+      const apiUrl = import.meta.env.VITE_API_BASE_URL || 'https://cc-backend-production-00fe.up.railway.app/api/v1';
       const userId = isAuthenticated && user ? (user.id || (user as any)._id || 'guest') : 'guest';
       
       const token = localStorage.getItem('token') || localStorage.getItem('access_token');
