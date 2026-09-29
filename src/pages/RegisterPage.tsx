@@ -602,8 +602,8 @@ const RegisterPage: React.FC = () => {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-8"></div>
         <div className="max-w-[980px] mx-auto px-6">
           <div className="flex justify-center gap-x-6 gap-y-3 flex-wrap mb-6 text-[13px] font-medium text-sky-700">
-            <a href="https://cc-legal.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">Conditions of Use</a>
-            <a href="https://cc-legal.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">Privacy Notice</a>
+            <a href="https://darling-muffin-7ee168.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">Conditions of Use</a>
+            <a href="https://darling-muffin-7ee168.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">Privacy Notice</a>
             <a href="#" className="hover:underline">Help Center</a>
             <a href="#" className="hover:underline">Accessibility</a>
             <a href="#" className="hover:underline">Cookies</a>
