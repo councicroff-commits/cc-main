@@ -345,11 +345,11 @@ const LoginPage: React.FC = () => {
           <Info size={16} className="shrink-0 text-gray-400 mt-0.5" />
           <p>
             By signing in, you agree to CC Ecom's{' '}
-            <a href="https://cc-legal.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">
+            <a href="https://darling-muffin-7ee168.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">
               Conditions of Use
             </a>{' '}
             and{' '}
-            <a href="https://cc-legal.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">
+            <a href="https://darling-muffin-7ee168.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">
               Privacy Notice
             </a>.
           </p>
